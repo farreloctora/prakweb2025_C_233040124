@@ -10,13 +10,22 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::with(['author', 'category'])->get();
+        // Eager load author to avoid per-row queries
+        $post = Post::query()
+            ->with(['author'])
+            ->latest()
+            ->get();
+
+        // Lazy eager load remaining relation after the initial query
+        $post->load(['category']);
+
         return view('posts', compact('post'));
     }
 
     public function show(Post $post)
     {
         $post->load(['author', 'category']);
-        return view('post', compact('post'));
+
+        return view('post-detail', compact('post'));
     }
 }

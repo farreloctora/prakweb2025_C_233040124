@@ -12,7 +12,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse ($post as $item)
                 <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-                    <div class="bg-gradient-to-br from-blue-500 to-purple-500 h-48"></div>
+                    <div class="h-48 bg-gray-100">
+                        @php $thumb = $item->image ? asset('storage/' . $item->image) : asset('images/preview.jpeg'); @endphp
+                        <img src="{{ $thumb }}" alt="{{ $item->title }}" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-3">
                             <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-semibold">
@@ -26,7 +29,7 @@
                         <p class="text-gray-700 mb-4 line-clamp-3">{{ $item->excerpt }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-gray-600 text-sm">By {{ $item->author->name }}</span>
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
+                            <a href="{{ route('posts.show', $item) }}" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Read More →</a>
                         </div>
                     </div>
                 </article>

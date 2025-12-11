@@ -17,6 +17,7 @@
         <a href="/about" class="hover:bg-blue-700 px-3 py-2 rounded transition">About</a>
         <a href="/posts" class="hover:bg-blue-700 px-3 py-2 rounded transition">Posts</a>
         <a href="/categories" class="hover:bg-blue-700 px-3 py-2 rounded transition">Categories</a>
+        <a href="/login" class="hover:bg-blue-700 px-3 py-2 rounded transition">Dashboard</a>
         <a href="/blog" class="hover:bg-blue-700 px-3 py-2 rounded transition">Blog</a>
         <a href="/contact" class="hover:bg-blue-700 px-3 py-2 rounded transition">Contact</a>
     </nav>
